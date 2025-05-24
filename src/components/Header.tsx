@@ -1,0 +1,79 @@
+"use client";
+
+import Link from "next/link";
+import { useState } from "react";
+import { ShoppingCart } from "lucide-react";
+
+export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  return (
+    <header className="sticky top-0 z-50 bg-white shadow-sm">
+      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+        <Link href="/" className="text-xl font-bold">
+          FitPick
+        </Link>
+
+        {/* Mobile menu button */}
+        <button 
+          className="md:hidden" 
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            {isMenuOpen ? (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            ) : (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            )}
+          </svg>
+        </button>
+        
+        {/* Desktop navigation */}
+        <nav className="hidden md:flex items-center space-x-8">
+          <Link href="/category/men" className="hover:text-gray-500">
+            남성
+          </Link>
+          <Link href="/category/women" className="hover:text-gray-500">
+            여성
+          </Link>
+          <Link href="/category/unisex" className="hover:text-gray-500">
+            공용
+          </Link>
+        </nav>
+
+        <Link href="/cart" className="flex items-center">
+          <ShoppingCart className="w-6 h-6" />
+        </Link>
+      </div>
+
+      {/* Mobile navigation */}
+      {isMenuOpen && (
+        <div className="md:hidden bg-white border-t">
+          <div className="container mx-auto px-4 py-2 flex flex-col space-y-2">
+            <Link 
+              href="/category/men" 
+              className="py-2 hover:text-gray-500"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              남성
+            </Link>
+            <Link 
+              href="/category/women" 
+              className="py-2 hover:text-gray-500"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              여성
+            </Link>
+            <Link 
+              href="/category/unisex" 
+              className="py-2 hover:text-gray-500"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              공용
+            </Link>
+          </div>
+        </div>
+      )}
+    </header>
+  );
+} 
