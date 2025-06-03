@@ -21,7 +21,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8 bg-white dark:bg-neutral-900">
       <div className="flex items-center mb-8">
         <Link href="/" className="text-sm text-gray-500 hover:underline mr-2">
           홈
@@ -43,7 +43,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="space-y-4">
-          <div className="relative h-[500px] w-full rounded-lg overflow-hidden border border-gray-200">
+          <div className="relative h-[500px] w-full rounded-lg overflow-hidden border border-gray-200 dark:border-neutral-700 bg-white dark:bg-neutral-800">
             <Image
               src={product.images[activeImageIndex]}
               alt={product.name}

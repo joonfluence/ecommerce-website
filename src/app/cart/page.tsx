@@ -5,7 +5,7 @@ import { ArrowLeft, ShoppingBag } from "lucide-react";
 
 export default function CartPage() {
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8 bg-white dark:bg-neutral-900">
       <div className="flex items-center mb-8">
         <Link href="/" className="text-sm text-gray-500 hover:underline mr-2">
           홈
@@ -16,7 +16,7 @@ export default function CartPage() {
 
       <h1 className="text-3xl font-bold mb-8">장바구니</h1>
 
-      <div className="bg-gray-50 rounded-lg p-8 text-center">
+      <div className="bg-gray-50 dark:bg-neutral-800 rounded-lg p-8 text-center">
         <div className="flex justify-center mb-6">
           <ShoppingBag className="w-16 h-16 text-gray-400" />
         </div>

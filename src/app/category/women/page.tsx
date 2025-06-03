@@ -7,7 +7,7 @@ export default function WomenCategoryPage() {
   const womenProducts = products.filter((product) => product.gender === "women");
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8 bg-white dark:bg-neutral-900">
       <div className="flex items-center mb-8">
         <Link href="/" className="text-sm text-gray-500 hover:underline mr-2">
           홈

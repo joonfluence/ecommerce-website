@@ -16,7 +16,7 @@ export default function Home() {
   const filteredProducts = products.filter((p) => p.gender === tab).slice(0, 6);
 
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-white dark:bg-neutral-900 min-h-screen">
       {/* Hero Section */}
       <section className="relative h-[420px] md:h-[520px] flex items-center justify-center mb-16">
         <img
@@ -29,7 +29,7 @@ export default function Home() {
           <p className="text-lg md:text-2xl mb-6 drop-shadow">모던 남녀를 위한 트렌디 패션</p>
           <Link
             href="/category/men"
-            className="bg-white/90 text-blue-900 font-semibold px-8 py-3 rounded-lg shadow hover:bg-white transition-colors"
+            className="bg-white/90 dark:bg-neutral-800 text-blue-900 dark:text-white font-semibold px-8 py-3 rounded-lg shadow hover:bg-white dark:hover:bg-neutral-700 transition-colors"
           >
             지금 쇼핑하기
           </Link>
@@ -45,7 +45,7 @@ export default function Home() {
             <button
               key={t.key}
               onClick={() => setTab(t.key)}
-              className={`px-5 py-2 rounded-full font-medium border transition-colors ${tab === t.key ? "bg-blue-900 text-white border-blue-900" : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"}`}
+              className={`px-5 py-2 rounded-full font-medium border transition-colors ${tab === t.key ? "bg-blue-900 text-white border-blue-900" : "bg-white dark:bg-neutral-800 text-gray-700 dark:text-white border-gray-300 dark:border-neutral-700 hover:bg-gray-100 dark:hover:bg-neutral-700"}`}
             >
               {t.label}
             </button>
@@ -60,21 +60,21 @@ export default function Home() {
 
       {/* Promotion Banners */}
       <section className="max-w-6xl mx-auto px-4 mb-16 grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-gray-100 rounded-lg p-6 flex flex-col justify-between items-start min-h-[180px]">
+        <div className="bg-gray-100 dark:bg-neutral-800 rounded-lg p-6 flex flex-col justify-between items-start min-h-[180px]">
           <div>
             <h3 className="text-lg font-bold mb-2">꿈과 패션의 만남</h3>
-            <p className="text-gray-600 mb-4">핏픽에서 나만의 스타일을 완성하세요.</p>
+            <p className="text-gray-600 dark:text-gray-300 mb-4">핏픽에서 나만의 스타일을 완성하세요.</p>
           </div>
-          <Link href="/category/women" className="text-blue-900 font-semibold hover:underline">여성 신상품 보기</Link>
+          <Link href="/category/women" className="text-blue-900 dark:text-blue-200 font-semibold hover:underline">여성 신상품 보기</Link>
         </div>
-        <div className="bg-gray-100 rounded-lg p-6 flex flex-col justify-between items-start min-h-[180px]">
+        <div className="bg-gray-100 dark:bg-neutral-800 rounded-lg p-6 flex flex-col justify-between items-start min-h-[180px]">
           <div>
             <h3 className="text-lg font-bold mb-2">모두를 위한 스타일</h3>
-            <p className="text-gray-600 mb-4">남녀 모두를 위한 트렌디 아이템을 만나보세요.</p>
+            <p className="text-gray-600 dark:text-gray-300 mb-4">남녀 모두를 위한 트렌디 아이템을 만나보세요.</p>
           </div>
-          <Link href="/category/unisex" className="text-blue-900 font-semibold hover:underline">공용 상품 보기</Link>
+          <Link href="/category/unisex" className="text-blue-900 dark:text-blue-200 font-semibold hover:underline">공용 상품 보기</Link>
         </div>
-        <div className="bg-blue-900 rounded-lg p-6 flex flex-col justify-between items-start min-h-[180px] text-white">
+        <div className="bg-blue-900 dark:bg-blue-800 rounded-lg p-6 flex flex-col justify-between items-start min-h-[180px] text-white">
           <div>
             <h3 className="text-lg font-bold mb-2">지금 최대 50% 할인</h3>
             <p className="mb-4">특별 할인 상품을 확인해보세요!</p>
