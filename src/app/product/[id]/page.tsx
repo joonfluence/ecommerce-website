@@ -1,13 +1,15 @@
 "use client";
 
+import * as React from "react";
 import { products } from "@/data/products";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { useState } from "react";
 
-export default function ProductPage({ params }: { params: { id: string } }) {
-  const product = products.find((p) => p.id === params.id);
+export default function ProductPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = React.use(params);
+  const product = products.find((p) => p.id === id);
   const [quantity, setQuantity] = useState(1);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
 
