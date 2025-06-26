@@ -3,9 +3,12 @@
 import Link from "next/link";
 import { useState } from "react";
 import { ShoppingCart } from "lucide-react";
+import GoogleLoginButton from './GoogleLoginButton';
+import { useAuth } from './AuthProvider';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user, signOut, loading } = useAuth();
 
   return (
     <header className="sticky top-0 z-50 bg-white dark:bg-neutral-900 shadow-sm">
@@ -41,9 +44,27 @@ export default function Header() {
           </Link>
         </nav>
 
-        <Link href="/cart" className="flex items-center">
+        <Link href="/cart" className="flex items-center mr-2">
           <ShoppingCart className="w-6 h-6" />
         </Link>
+        {user ? (
+          <div className="flex items-center gap-2">
+            <span className="text-sm text-gray-700" aria-label="로그인된 사용자">{user.email}</span>
+            <button
+              onClick={signOut}
+              onKeyDown={e => (e.key === 'Enter' || e.key === ' ') && signOut()}
+              className="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 text-gray-700 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              aria-label="로그아웃"
+              tabIndex={0}
+              type="button"
+              disabled={loading}
+            >
+              로그아웃
+            </button>
+          </div>
+        ) : (
+          <div className="w-40"><GoogleLoginButton /></div>
+        )}
       </div>
 
       {/* Mobile navigation */}
