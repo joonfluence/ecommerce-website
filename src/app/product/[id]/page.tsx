@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { useState } from "react";
+import BuyButton from "@/components/BuyButton";
 
 export default function ProductPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = React.use(params);
@@ -128,9 +129,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
             >
               장바구니에 담기
             </button>
-            <button className="w-full py-3 px-6 bg-white border border-black rounded-md hover:bg-gray-50 transition-colors">
-              바로 구매하기
-            </button>
+            <BuyButton />
           </div>
         </div>
       </div>
